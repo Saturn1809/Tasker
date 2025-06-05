@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const Read = (props) => {
 
 
@@ -8,14 +10,15 @@ const settodos = props.settodos;
 const DeleteHandler =  (id) => {
 
     const filtertodo =  todos.filter(todo => todo.id != id)
-    settodos(filtertodo)
+    settodos(filtertodo);
+    toast.error('Task Deleted')
     
 }
 
 const rendertodo = todos.map((todo) =>{
 
   return<li className="p-2 list-disc flex justify-between items-center bg-blue-300 mb-4 rounded-lg" flex justify key={todo.id}>{todo.title} {" "}
-   <span className=" font-thin text-red-400 cursor-pointer" onClick={ () => DeleteHandler(todo.id)}>Delete</span></li>
+   <span className=" font-thin text-red-400 cursor-pointer active:scale-80" onClick={ () => DeleteHandler(todo.id)}>Delete</span></li>
 
 }) 
   return (
