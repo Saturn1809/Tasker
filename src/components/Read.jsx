@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { toast } from "react-toastify";
+import { todoContext } from "../Wrapper";
 
 const Read = (props) => {
 
+const s = useContext (todoContext);
+console.log(s);
 
 const todos = props.todos;
 const settodos = props.settodos;
